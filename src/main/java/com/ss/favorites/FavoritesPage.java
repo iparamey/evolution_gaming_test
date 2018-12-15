@@ -16,7 +16,8 @@ public class FavoritesPage extends BasePage {
     }
 
     private ArrayList<String> getAdsDescriptionsList() {
-        return getElementsByCss(".msg2").stream().map(element -> element.getText().substring(0, 30)).collect(Collectors.toCollection(ArrayList::new));
+        return getElementsByCss(".msg2").stream().map(element -> element.getText().length() > 30 ? element.getText().substring(0, 30) : element.getText()).collect(Collectors.toCollection(ArrayList::new));
+//        return getElementsByCss(".msg2").stream().map(element -> element.getText().substring(0, 30)).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public boolean checkAdsByDescription(Favorites favorites) {
