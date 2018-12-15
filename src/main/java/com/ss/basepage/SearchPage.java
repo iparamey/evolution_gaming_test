@@ -14,7 +14,7 @@ public class SearchPage extends BasePage {
         return getElementByXpath(String.format("//table[2]/tbody/tr[%d]/td[1]/input", (adNumber + 1)));
     }
 
-    private String getDescriptionByAdNumber(int adNumber) {
+    public String getDescriptionByAdNumber(int adNumber) {
         return getElementByXpath(String.format("//table[2]/tbody/tr[%d]/td[3]", (adNumber + 1))).getText().substring(0, 30);
     }
 

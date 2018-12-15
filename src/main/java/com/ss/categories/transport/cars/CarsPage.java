@@ -34,10 +34,14 @@ public class CarsPage extends BasePage {
         getMaxPriceInput.sendKeys(String.valueOf(price));
     }
 
-    public void filterCarsByPrices(int minPrice, int maxPrice) {
+    private void filterCarsByPrices(int minPrice, int maxPrice) {
         setMinPrice(minPrice);
         setMaxPrice(maxPrice);
         getSearchButton.click();
+    }
+
+    public void filterMoskvichAdsByPrices() {
+        filterCarsByPrices(2000, 15000);
     }
 
     public void selectVwAnnouncements() {

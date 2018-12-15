@@ -7,7 +7,7 @@ import com.ss.categories.transport.cars.CarsPage;
 import com.ss.categories.transport.cars.CarsSearchResultPage;
 import com.ss.favorites.FavoritesPage;
 import com.ss.mainpage.MainPage;
-import com.ss.search.SearchPage;
+import com.ss.search.MainSearchPage;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +27,7 @@ public class MemoTest {
     CarsPage carsPage;
     CarsSearchResultPage carsSearchResultPage;
     FavoritesPage favoritesPage;
-    SearchPage searchPage;
+    MainSearchPage searchPage;
 
     public MemoTest () {
         Selenium selenium = new Selenium(driver);
@@ -35,7 +35,7 @@ public class MemoTest {
         carsPage = new CarsPage(selenium);
         carsSearchResultPage = new CarsSearchResultPage(selenium);
         favoritesPage = new FavoritesPage(selenium);
-        searchPage = new SearchPage(selenium);
+        searchPage = new MainSearchPage(selenium);
     }
 
     @BeforeClass
@@ -69,27 +69,27 @@ public class MemoTest {
         mainPage.openSite();
         mainPage.openCarsCategory();
         carsPage.selectMoskvichCategory();
-        carsPage.filterCarsByPrices(2000, 15000);
+        carsPage.filterMoskvichAdsByPrices();
         carsSearchResultPage.selectFilteredAds(favorites);
         favoritesCounter += carsSearchResultPage.addSelectedAdsToFavorites();
         Assert.assertEquals(carsSearchResultPage.getMemoCounter(), favoritesCounter);
     }
 
     @Test
-    public void test3_CheckMemoList() {
-        mainPage.openSite();
-        mainPage.openFavoritesPage();
-        Assert.assertTrue(favoritesPage.checkAdsByPrice(favorites));
-    }
-
-    @Test
-    public void test4_AddFilteredAdToFavorites() {
+    public void test3_AddFilteredAdToFavorites() {
         mainPage.openSite();
         mainPage.openSearchPage();
         searchPage.filterGameEvAds();
         searchPage.selectFirstAd(favorites);
         favoritesCounter += searchPage.addSelectedAdsToFavorites();
         Assert.assertEquals(carsSearchResultPage.getMemoCounter(), favoritesCounter);
+    }
+
+    @Test
+    public void test4_CheckMemoList() {
+        mainPage.openSite();
+        mainPage.openFavoritesPage();
+        Assert.assertTrue(favoritesPage.checkAdsByDescription(favorites));
     }
 
 }

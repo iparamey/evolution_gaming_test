@@ -1,13 +1,13 @@
 package com.ss.search;
 
 
-import com.ss.basepage.SearchModule;
+import com.ss.basepage.SearchPage;
 import com.ss.basepage.Selenium;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MainSearchPage extends SearchModule {
+public class MainSearchPage extends SearchPage {
 
     public MainSearchPage(Selenium selenium) {
         super(selenium);
@@ -29,6 +29,11 @@ public class MainSearchPage extends SearchModule {
     private void selectJobAndBusinessSection() {
         getSectionSelection.click();
         getJobAndBusinessOption.click();
+    }
+
+    @Override
+    public String getDescriptionByAdNumber(int adNumber) {
+        return getElementByXpath(String.format("//table[2]/tbody/tr[%d]/td[3]/div/a/b", (adNumber + 1))).getText().substring(0, 30);
     }
 
     public void filterGameEvAds() {
