@@ -1,0 +1,40 @@
+Feature: 	Adding ad(s) to memo as a favorite
+	     	As a user,
+		    I want to save one or more ads
+
+Scenario: 	Adding ad to favorites
+		    Given the user is on ss.com main page
+		    When he opens cars category
+		    And he selects Volkswagen announcements
+		    And he selects first ad from the list
+		    And he adds selected ad to favorites
+		    Then ensure memo’s counter displays correct
+		    number of favorites ads
+
+Scenario:  	Adding several ads to favorites
+		    Given the user is on ss.com main page
+		    When he opens cars category
+		    And he selects Moskvich announcements
+		    And he sets minimum and maximum prices for search
+		    And he selects all ads from results
+		    And he adds all these ads to favorites
+		    Then ensure memo’s counter displays correct
+		    number of favorites ads
+
+Scenario: 	Adding ad to favorites
+		    Given the user is on ss.com main page
+		    When he opens main search page
+		    And he sets search text and category
+		    And he selects first ad from the results
+		    Then ensure memo’s counter displays correct
+		    number of favorites ads
+
+Scenario: 	Checking ads in the favorites list
+		    Given the user is on ss.com main page
+		    When he opens favorites page
+		    Then ensure it displays only those ads that were added
+		    as favorites before
+
+
+
+

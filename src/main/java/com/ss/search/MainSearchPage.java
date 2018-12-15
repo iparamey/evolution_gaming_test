@@ -7,9 +7,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SearchPage extends SearchModule {
+public class MainSearchPage extends SearchModule {
 
-    public SearchPage(Selenium selenium) {
+    public MainSearchPage(Selenium selenium) {
         super(selenium);
     }
 

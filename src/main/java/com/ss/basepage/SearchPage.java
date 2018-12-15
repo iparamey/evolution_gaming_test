@@ -4,9 +4,9 @@ import com.ss.announcement.Announcement;
 import com.ss.announcement.Favorites;
 import org.openqa.selenium.WebElement;
 
-public class SearchModule extends BasePage {
+public class SearchPage extends BasePage {
 
-    public SearchModule(Selenium selenium) {
+    public SearchPage(Selenium selenium) {
         super(selenium);
     }
 
